@@ -1,0 +1,162 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensure padding doesn't affect element size */
+}
+
+body {
+    background-color: black;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    height: 70vh; /* Full height */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; /* Space between elements */
+}
+
+.game {
+    height: 60vmin;
+    width: 60vmin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5vmin;
+    margin-bottom: 2rem; /* Space below the game area */
+    border: 3px solid white; /* Add border around game area */
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.1); /* Light transparent background */
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+}
+
+/* Lightning effect keyframes */
+@keyframes lightning {
+    0% {
+        text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+    20% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+    40% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.6);
+    }
+    60% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+    80% {
+        text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+    100% {
+        text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+
+/* Box Styles */
+.box {
+    height: 18vmin;
+    width: 18vmin;
+    border-radius: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.6); /* Light white border */
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+    font-size: 8vmin;
+    color: rgb(138, 52, 52);
+    background: linear-gradient(145deg, #f6d365, #fda085); /* Gradient background */
+    cursor: pointer; /* Indicate clickability */
+    transition: transform 0.2s ease; /* Smooth transform */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Animate the selected box */
+.box.animated {
+    animation: lightning 1s ease;
+}
+
+.box:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Button Styles */
+#reset-btn, #new-btn {
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#reset-btn {
+    background-color: rgb(53, 42, 42);
+    color: white;
+}
+
+#reset-btn:hover {
+    background-color: rgb(45, 67, 146);
+}
+
+#reset-btn:active {
+    transform: translateY(2px);
+}
+
+#reset-btn:focus {
+    outline: none;
+}
+
+#new-btn {
+    background-color: rgb(64, 26, 168);
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+#new-btn:hover {
+    background-color: rgb(48, 20, 124);
+}
+
+#new-btn:active {
+    transform: translateY(2px);
+}
+
+#new-btn:focus {
+    outline: none;
+}
+
+#msg {
+    color: white;
+    font-size: 1.5rem; /* Increase font size */
+    margin-bottom: 1rem; /* Space below message */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Add text shadow for depth */
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 600px) {
+    .game {
+        height: 50vmin;
+        width: 50vmin;
+    }
+
+    .box {
+        height: 15vmin;
+        width: 15vmin;
+        font-size: 6vmin;
+    }
+
+    #reset-btn, #new-btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+.hide {
+    display: none;
+}
